@@ -1,0 +1,18 @@
+button {
+    border: none;
+    background-color: darkcyan;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+#root {
+    color: white;
+    padding: 5vh;
+    line-height: 10vh;
+    background-color: blueviolet;
+    border: 2px solid black;
+}

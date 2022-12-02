@@ -1,0 +1,38 @@
+<div id="root">
+  <ul>
+    <h1>Fossa das Marianas</h1>
+    <li>
+      <button (click)="modal1_open()" *ngIf="!mostrar1 && !mostrar2"><h1>O que é?</h1></button>
+    </li>
+    <li>
+      <button (click)="modal2_open()" *ngIf="!mostrar1 && !mostrar2"><h2>Quanta pressão há nela?</h2></button>
+    </li>
+    <li>
+      <button (click)="modal3_open()" *ngIf="mostrar2">Outras Características</button>
+    </li>
+  </ul>
+    <app-customized-content>
+      <div modal1 id="modal" *ngIf="mostrar1">
+        A Fossa das Marianas está localizada no Oceano Pacifico. 
+        Com seus 11 quilômetros de profundidade, em médica, é o lugar mais profundo de todos os oceanos.
+        <button (click)="modal1_open()">Fechar</button>
+      </div>
+      <div modal2 id="modal" *ngIf="mostrar2 && !mostrar3" (click)="modal2_open()">
+        A coluna de água que está sob a Fossa das Marianas produz uma pressão realmente descomunal. 
+        Imagine 50 aviões empilhados sobre o seu corpo, essa é a melhor forma de ilustrar a pressão de 8 toneladas por centímetro quadrado. 
+        E mesmo nessas condições, há vida florescendo naquela região.
+        <button (click)="modal2_open()">Fechar</button>
+      </div>
+      <div model3 id="model" *ngIf="mostrar3" (click)="modal3_open()">
+        O lugar mais profundo dos oceanos comportaria o Monte Everest inteiro e ainda sobraria mais de 2 quilômetros de folga. 
+        Aliás, nem mesmo as linhas áreas comercias conseguiriam bater os 11 quilômetros de profundidade da fossa.
+        <button (click)="modal3_open()">Fechar</button>
+      </div>
+    </app-customized-content>
+    <select [(ngModel)]="selectedTag">
+      <option *ngFor="let tag of tags" [value]="tag['displayName']">{{ tag['displayName'] }}</option>
+    </select>
+    <input type="number" placeholder="Escreva um número" [(ngModel)]="numer">
+    <button (click)="consultar()">Enviar</button>
+  <p>{{this.linkImage}}</p>
+</div>
