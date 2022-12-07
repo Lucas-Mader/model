@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AppService } from './app.service';
 
 @Component({
@@ -32,15 +32,15 @@ export class AppComponent {
     this.mostrar2 = !this.mostrar2;
   }
 
-  modal3_open():void {
+  modal3_open(): void {
     this.mostrar3 = !this.mostrar3;
   }
 
   tags: any[];
   html: any;
   selectedTag: string;
-  linkImage: string;
-  numer: string = '1';
+  linkTitle: string;
+  number: string = '1';
 
   constructor(private appService: AppService) { };
 
@@ -49,15 +49,15 @@ export class AppComponent {
       this.tags = tags["departments"];
     })
 
-    this.appService.getHtml(this.numer).subscribe(html => {
+    this.appService.getHtml(this.number).subscribe(html => {
       this.html = html;
     })
   }
 
-  consultar() {
-    this.linkImage = this.html.title;
-    this.appService.getHtml(this.numer).subscribe(html => {
+  consultar(): void {
+    this.appService.getHtml(this.number).subscribe(html => {
       this.html = html;
     })
+    this.linkTitle = this.html.title;
   }
 }
